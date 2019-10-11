@@ -1,0 +1,104 @@
+.telecfree_widget{
+	width: 150px;
+	height: 400px;
+	font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	background-color: black;
+	overflow:hidden;	
+	position: relative;	
+	z-index: 1;
+}
+.telecfree_red{
+	background-color: red;
+}
+.telecfree_green{
+	background-color: green;
+}
+.telecfree_blue{
+	background-color: blue;
+}
+.telecfree_yellow{
+	background-color: yellow;
+}
+.sections_droite{
+	width: 15px;
+	height: 40px;	
+	position: absolute;	
+	top: 143.5px;
+	right: 5px;	
+	cursor:pointer;	
+	z-index: 4;	
+	opacity: 0.1;
+}
+.sections_droite:hover{
+	opacity: 1;
+}
+.sections_droite_chaines{
+	width: 15px;
+	height: 40px;	
+	position: absolute;	
+	top: 143.5px;
+	left: 5px;	
+	cursor:pointer;	
+	z-index: 4;	
+	-ms-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);	
+	opacity: 0.1;
+}
+.sections_droite_chaines:hover{
+	opacity: 1;
+}
+.sections_gauche{
+	width: 15px;
+	height: 40px;	
+	position: absolute;	
+	top: 143.5px;
+	left: 5px;	
+	cursor:pointer;	
+	-ms-transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);	
+	z-index: 4;	
+	opacity: 0.1;
+}
+.sections_gauche:hover{
+	opacity: 1;
+}
+.sections_gauche_racourcis{
+	width: 15px;
+	height: 40px;	
+	position: absolute;	
+	top: 143.5px;
+	right: 5px;	
+	cursor:pointer;	
+	z-index: 4;	
+	opacity: 0.1;
+}
+.sections_gauche_racourcis:hover{
+	opacity: 1;
+}
+.shadow_fenetre{
+	overflow: auto;
+	background-color: white;	
+	-moz-box-shadow: 0px 0px 40px 0px #330001;
+	-webkit-box-shadow: 0px 0px 40px 0px #330001;
+	-o-box-shadow: 0px 0px 40px 0px #330001;
+	box-shadow: 0px 0px 40px 0px #330001;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#330001, Direction=NaN, Strength=40);
+}
+.Racourcis{
+	width: 100px;
+	height: 327px;	
+	float: left;	
+	position: absolute;	
+	z-index: 10;	
+	left: -100px;
+}
+.Chaines{
+	width: 100px;
+	height: 327px;	
+	float: left;	
+	position: absolute;	
+	z-index: 10;	
+	right: -100px;	
+}

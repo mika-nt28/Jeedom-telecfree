@@ -1,0 +1,122 @@
+<div class="eqLogic eqLogic-widget noResize telecfree_widget" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" style="min-width : 50px;min-height : 80px ;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;width:150px;height:400px;#style#">
+<!--div class="eqLogic eqLogic-widget allowResize" data-eqLogic_id="#id#" data-eqLogic_uid="#uid#" data-version="#version#" style="min-width : 50px;min-height : 80px ;border:#border#;border-radius:#border-radius#;background-color: #background-color#;color: #color#;width: #width#;height: #height#;#style#" -->
+	<center class="widget-name">
+		<span style="font-weight:bold;"><a href="#eqLink#">#name#</a></span>
+	</center>
+	<link rel="stylesheet" href="plugins/telecfree/core/template/dashboard/css/style.css" />
+	<div class="Racourcis">
+		<img class="sections_gauche_racourcis tooltips noRefresh" src="plugins/telecfree/core/template/images/chevron.png" title="Télécommande"/>
+		#programmes#
+		#disques#
+		#musiques#
+		#radios#
+		#videos#
+		#replay#
+		#tv#
+	</div>
+	<div class="Chaines">
+		<img class="sections_droite_chaines noRefresh" src="plugins/telecfree/core/template/images/chevron.png" title="Télécommande"/>
+		#Chaines#
+	</div>
+	<div class="Telecommande">
+		<img class="sections_droite tooltips noRefresh" src="plugins/telecfree/core/template/images/chevron.png" title="Chaines" />
+		<img class="sections_gauche tooltips noRefresh" src="plugins/telecfree/core/template/images/chevron.png" title="Racourcis"/>
+		<table class="Freeboxtelecommande" align="center">
+			<tr>
+				<td>AV</td>
+				<td><span class="statusCmd"></span></td>
+				<td>#power#</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>#1#</td>
+				<td>#2#</td>
+				<td>#3#</td>
+			</tr>
+			<tr>
+				<td>#4#</td>
+				<td>#5#</td>
+				<td>#6#</td>
+			</tr>
+			<tr>
+				<td>#7#</td>
+				<td>#8#</td>
+				<td>#9#</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>#0#</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>#red#</td>
+				<td>#up#</td>
+				<td>#blue#</td>
+			</tr>
+			<tr>
+				<td>#left#</td>
+				<td action-id="ok">#ok#</td>
+				<td>#right#</td>
+			</tr>
+			<tr>
+				<td>#green#</td>
+				<td>#down#</td>
+				<td>#yellow#</td>
+			</tr>
+			<tr>
+				<td colspan="3">#home#</td>
+			</tr>
+			<tr>
+				<td class="IncDec">#vol_inc#</td>
+				<td>#mute#</td>
+				<td class="IncDec">#prgm_inc#</td>
+			</tr>
+			<tr>
+				<td>VOL</td>
+				<td></td>
+				<td>PROG</td>
+			</tr>
+			<tr>
+				<td class="IncDec">#vol_dec#</td>
+				<td action-id="rec">#rec#</td>
+				<td class="IncDec">#prgm_dec#</td>
+			</tr>
+			<tr>
+				<td>#prev#</td>
+				<td>#play#</td>
+				<td>#next#</td>
+			</tr>
+		</table>
+		
+	</div>
+	<script>
+		$('.eqLogic[data-eqLogic_uid=#uid#] .sections_droite').on('click',function(){
+			$(".eqLogic[data-eqLogic_uid=#uid#] .Chaines").animate({right:"0px"});
+			$(".eqLogic[data-eqLogic_uid=#uid#] .Chaines").attr("class","Chaines shadow_fenetre");
+			if ($(".eqLogic[data-eqLogic_uid=#uid#] .Racourcis").css("left") == "0px"){
+				$('.eqLogic[data-eqLogic_uid=#uid#] .sections_gauche_racourcis').trigger('click');
+			}
+		});
+		$('.eqLogic[data-eqLogic_uid=#uid#] .sections_droite_chaines').on('click',function(){
+			$(".eqLogic[data-eqLogic_uid=#uid#] .Chaines").animate({right:"-100px"});
+			$(".eqLogic[data-eqLogic_uid=#uid#] .Chaines").attr("class","Chaines");
+		});
+		$('.eqLogic[data-eqLogic_uid=#uid#] .sections_gauche').on('click',function(){
+			$(".eqLogic[data-eqLogic_uid=#uid#] .Racourcis").animate({left:"0px"});
+			$(".eqLogic[data-eqLogic_uid=#uid#] .Racourcis").attr("class","Racourcis shadow_fenetre");
+			if ($(".eqLogic[data-eqLogic_uid=#uid#] .Chaines").css("right") == "0px"){
+				$('.eqLogic[data-eqLogic_uid=#uid#] .sections_droite_chaines').trigger('click');
+			}
+		});
+		$('.eqLogic[data-eqLogic_uid=#uid#] .sections_gauche_racourcis').on('click',function(){
+			$(".eqLogic[data-eqLogic_uid=#uid#] .Racourcis").animate({left:"-100px"});
+			$(".eqLogic[data-eqLogic_uid=#uid#] .Racourcis").attr("class","Racourcis");
+		});
+	</script>
+
+</div>
+

@@ -141,8 +141,8 @@ class telecfree extends eqLogic {
 			$Commande->setTemplate('mobile', $Template);
 			$Commande->save();
 		return $Commande;
-	}
-	public function toHtml($_version = 'mobile') {
+	}	
+	public function toHtml($_version = 'dashboard') {
 		$replace = $this->preToHtml($_version);
 		if (!is_array($replace)) {
 			return $replace;
@@ -209,7 +209,7 @@ class telecfree extends eqLogic {
 				break;
 			}
 		}
-		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', $version, 'eqLogic', 'telecfree')));
+		return $this->postToHtml($_version, template_replace($replace, getTemplate('core', jeedom::versionAlias($version), 'eqLogic', 'telecfree')));
 	}
 	public static function event() {
 		$cmd =  telecfreeCmd::byId(init('id'));

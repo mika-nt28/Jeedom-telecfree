@@ -300,6 +300,7 @@ class telecfreeCmd extends cmd {
 			case 'home':
 			case 'mute':
 			case 'rec':
+			case 'next':
 			case 'prev':
 			case 'play':
 			case 'red':

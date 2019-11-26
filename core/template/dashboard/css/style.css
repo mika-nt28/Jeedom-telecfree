@@ -7,6 +7,13 @@
 	position: relative;	
 	z-index: 1;
 }
+.Freeboxtelecommande td{
+	text-align:center; 
+	vertical-align: middle;
+	border:0px;
+	min-width: 50px;
+
+}
 .telecfree_red{
 	background-color: red;
 }

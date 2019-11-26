@@ -88,6 +88,7 @@ class telecfree extends eqLogic {
 		$ActionPower->save();
 		$this->AddCommande('Volume +','vol_inc',"action",'other','telecfreeBase');
 		$this->AddCommande('Volume -','vol_dec',"action",'other','telecfreeBase');
+		$this->AddCommande('Chaine','chaine',"action",'slider');
 		$this->AddCommande('Programme +','prgm_inc',"action",'other','telecfreeBase');
 		$this->AddCommande('Programme -','prgm_dec',"action",'other','telecfreeBase');
 		$this->AddCommande('Home','home',"action",'other','telecfreeBase');
@@ -165,6 +166,8 @@ class telecfree extends eqLogic {
 				$br_before = 1;
 			}
 			switch($cmd->getLogicalId()){
+				case 'chaine':
+				break;
 				case 'home':
 				case 'power':
 				case 'red':
@@ -286,6 +289,9 @@ class telecfreeCmd extends cmd {
 				$this->sendAndWait('power',500000);
 				$result=exec('nc -zv '.$this->getEqLogic()->getConfiguration('ipplayer').' 7000 2>&1 | grep -E "open|succeeded" | wc -l');
 				$this->getEqLogic()->checkAndUpdateCmd('powerstat',$result);
+			break;
+			case 'chaine':
+				$this->multiSend(str_split($_options['slider']));
 			break;
 			case 'vol_inc':
 			case 'vol_dec':

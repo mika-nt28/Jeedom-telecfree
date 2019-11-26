@@ -8,6 +8,7 @@
 	"category" : "multimedia",
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
 	"documentation" : "https://mika-nt28.github.io/Jeedom-telecfree/",
+	"changelog" : "https://mika-nt28.github.io/Jeedom-telecfree/",
 	"hasDependency" : true,
 	"hasOwnDeamon" : true
 }

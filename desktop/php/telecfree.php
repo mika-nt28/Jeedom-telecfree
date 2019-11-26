@@ -150,21 +150,73 @@
 				</form>
 			</div>
 			<div role="tabpanel" class="tab-pane" id="commandtab">	
-				<a class="btn btn-success btn-sm cmdAction pull-right" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter}}</a><br/><br/>
+				<ul class="nav nav-tabs" role="tablist">
+					<li role="presentation" class="active">
+						<a href="#telectab" aria-controls="home" role="tab" data-toggle="tab">
+						<i class="fa fa-tachometer"></i> 
+							{{Télécommande}}
+						</a>
+					</li>
+					<li role="presentation">
+						<a href="#racourcistab" aria-controls="profile" role="tab" data-toggle="tab">
+							<i class="fa fa-list-alt"></i> 
+							{{Racourcis}}
+						</a>
+					</li>
+					<li role="presentation">
+						<a href="#chainetab" aria-controls="profile" role="tab" data-toggle="tab">
+							<i class="fa fa-list-alt"></i> 
+							{{Chaine}}
+						</a>
+					</li>
+				</ul>
+				<div class="tab-content" style="height:calc(100% - 50px);overflow:auto;overflow-x: hidden;">
+					<div role="tabpanel" class="tab-pane active" id="telectab">
+						<table id="table_cmd_telec" class="table table-bordered table-condensed">
+							<thead>
+								<tr>
+									<th></th>
+									<th>{{Nom}}</th>
+									<th>{{Action}}</th>
+									<th>{{Parameter}}</th>
+									<th>{{Avancée}}</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="racourcistab">	
+						<table id="table_cmd_racoucis" class="table table-bordered table-condensed">
+							<thead>
+								<tr>
+									<th></th>
+									<th>{{Nom}}</th>
+									<th>{{Action}}</th>
+									<th>{{Parameter}}</th>
+									<th>{{Avancée}}</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+					<div role="tabpanel" class="tab-pane" id="chainetab">	
+						<a class="btn btn-success btn-sm cmdAction pull-right" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter}}</a><br/><br/>
 
-				<br/><br/>
-				<table id="table_cmd" class="table table-bordered table-condensed">
-					<thead>
-						<tr>
-							<th></th>
-							<th>{{Nom}}</th>
-							<th>{{Action}}</th>
-							<th>{{Parameter}}</th>
-							<th>{{Avancée}}</th>
-						</tr>
-					</thead>
-					<tbody></tbody>
-				</table>
+						<br/><br/>
+						<table id="table_cmd" class="table table-bordered table-condensed">
+							<thead>
+								<tr>
+									<th></th>
+									<th>{{Nom}}</th>
+									<th>{{Action}}</th>
+									<th>{{Parameter}}</th>
+									<th>{{Avancée}}</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
 			</div>	
 		</div>
 	</div>

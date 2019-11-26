@@ -203,7 +203,7 @@
 						<a class="btn btn-success btn-sm cmdAction pull-right" data-action="add"><i class="fa fa-plus-circle"></i> {{Ajouter}}</a><br/><br/>
 
 						<br/><br/>
-						<table id="table_cmd" class="table table-bordered table-condensed">
+						<table id="table_cmd_chaine" class="table table-bordered table-condensed">
 							<thead>
 								<tr>
 									<th></th>

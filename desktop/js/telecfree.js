@@ -1,4 +1,6 @@
-$("#table_cmd").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
+$("#table_cmd_telec").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
+$("#table_cmd_racoucis").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
+$("#table_cmd_chaine").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
 function addCmdToTable(_cmd) {
 	if (!isset(_cmd)) {
         var _cmd = {};
@@ -41,6 +43,55 @@ function addCmdToTable(_cmd) {
 	parmetre.append($('<a class="btn btn-default btn-xs cmdAction" data-action="configure">')
 		.append($('<i class="fa fa-cogs">')));
 	tr.append(parmetre);
-	$('#table_cmd tbody').append(tr);
-	$('#table_cmd tbody tr:last').setValues(_cmd, '.cmdAttr');
+	switch(_cmd.logicalId){
+		case 'programmes':
+		case 'disques':
+		case 'musiques':
+		case 'radios':
+		case 'videos':
+		case 'replay':
+		case 'tv':
+			$('#table_cmd_racoucis tbody').append(tr);
+			$('#table_cmd_racoucis tbody tr:last').setValues(_cmd, '.cmdAttr');		
+		break;
+		case '1':
+		case '2':
+		case '3':
+		case '4':
+		case '5':
+		case '6':
+		case '7':
+		case '8':
+		case '9':
+		case '0':
+		case 'power':
+		case 'powerstat':			
+		case 'chaine':
+		case 'vol_inc':
+		case 'vol_dec':
+		case 'prgm_inc':
+		case 'prgm_dec':
+		case 'home':
+		case 'mute':
+		case 'rec':
+		case 'next':
+		case 'prev':
+		case 'play':
+		case 'red':
+		case 'green':
+		case 'blue':
+		case 'yellow':
+		case 'ok':
+		case 'up':
+		case 'down':
+		case 'left':
+		case 'right':
+			$('#table_cmd_telec tbody').append(tr);
+			$('#table_cmd_telec tbody tr:last').setValues(_cmd, '.cmdAttr');
+		break;
+		default:
+			$('#table_cmd_chaine tbody').append(tr);
+			$('#table_cmd_chaine tbody tr:last').setValues(_cmd, '.cmdAttr');
+		break;
+	}
 }

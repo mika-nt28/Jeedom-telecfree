@@ -1,21 +1,16 @@
 <span class="cmd" data-type="action" data-subtype="other" data-cmd_id="#id#" style="width:100%;height:100%;">
 	<center>
 		<a class="btn btn-sm action cmdName tooltips iconCmd#id#">
-			<img src="plugins/telecfree/core/template/images/chaines/chaines.png" width="80px"/>
+			<?php
+				if(file_exists('plugins/telecfree/core/template/images/chaines/#logicalId#.png'))
+					echo '<img src="'plugins/telecfree/core/template/images/chaines/#logicalId#.png" width="80px"/>';
+				else
+					echo '<img src="plugins/telecfree/core/template/images/chaines/chaines.png" width="80px"/>';
+			?>
 		</a>
 	</center>
 	<script>
-		var oImg=new Image;
-		oImg.src='plugins/telecfree/core/template/images/chaines/#logicalId#.png';
-		oImg.onload=function(){
-			$(".iconCmd#id#").find('img').attr('src','plugins/telecfree/core/template/images/chaines/#logicalId#.png');
-		}
-		if ("#state#" == "1") 
-			$(".iconCmd#id#").css('background-color', '#C42833 !important;');
-		else 
-			$(".iconCmd#id#").css('background-color', 'transparent !important;');
-		$(".cmd[data-cmd_id=#id#] .action").off();
-		$(".cmd[data-cmd_id=#id#] .action").on("click", function() {
+		$(".cmd[data-cmd_id=#id#] .action").off().on("click", function() {
 			jeedom.cmd.execute({id: "#id#"});
 		});
 	</script>

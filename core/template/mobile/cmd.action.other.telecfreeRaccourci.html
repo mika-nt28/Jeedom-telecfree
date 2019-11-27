@@ -2,37 +2,33 @@
 	<center>	
 		<a class="action cmdName tooltips iconCmd#id#"></a>
 	</center>
-   <script>
-	if ("#state#" == "1") 
-		$(".iconCmd#id#").css('background-color', '#C42833 !important;');
-	else 
-		$(".iconCmd#id#").css('background-color', 'transparent !important;');
-	$(".cmd[data-cmd_id=#id#] .action").off();
-	$(".cmd[data-cmd_id=#id#] .action").on("click", function() {
-		jeedom.cmd.execute({id: "#id#"});
-	});
-	switch('#logicalId#'){
-		case 'programmes':
-			$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers programmes.png" width="80px"/>');
-		break;
-		case 'disques':
-			$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers disques.png" width="80px"/>');
-		break;
-		case 'musiques':
-			$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers musiques.png" width="80px"/>');
-		break;
-		case 'radios':
-			$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers radios.png" width="80px"/>');
-		break;
-		case 'videos':
-			$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers videos.png" width="80px"/>');
-		break;
-		case 'replay':
-			$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers replay.png" width="80px"/>');
-		break;
-		case 'tv':
-			$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers tv.png" width="80px"/>');
-		break;
-	}
+	<script>
+		$(".cmd[data-cmd_id=#id#] .action");
+		$(".cmd[data-cmd_id=#id#] .action").off().on("click", function() {
+			jeedom.cmd.execute({id: "#id#"});
+		});
+		switch('#logicalId#'){
+			case 'programmes':
+				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers programmes.png" width="80px"/>');
+			break;
+			case 'disques':
+				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers disques.png" width="80px"/>');
+			break;
+			case 'musiques':
+				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers musiques.png" width="80px"/>');
+			break;
+			case 'radios':
+				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers radios.png" width="80px"/>');
+			break;
+			case 'videos':
+				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers videos.png" width="80px"/>');
+			break;
+			case 'replay':
+				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers replay.png" width="80px"/>');
+			break;
+			case 'tv':
+				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers tv.png" width="80px"/>');
+			break;
+		}
 	</script>
 </span>

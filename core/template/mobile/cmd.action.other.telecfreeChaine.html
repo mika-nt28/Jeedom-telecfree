@@ -10,12 +10,7 @@
 		</a>
 	</center>
 	<script>
-		if ("#state#" == "1") 
-			$(".iconCmd#id#").css('background-color', '#C42833 !important;');
-		else 
-			$(".iconCmd#id#").css('background-color', 'transparent !important;');
-		$(".cmd[data-cmd_id=#id#] .action").off();
-		$(".cmd[data-cmd_id=#id#] .action").on("click", function() {
+		$(".cmd[data-cmd_id=#id#] .action").off().on("click", function() {
 			jeedom.cmd.execute({id: "#id#"});
 		});
 	</script>

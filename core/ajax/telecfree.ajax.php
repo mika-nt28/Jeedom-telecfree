@@ -10,7 +10,8 @@ try {
 			$file="plugins/telecfree/core/template/images/chaines/".init('logicalId').".png";
 			if(file_exists($file))
 				ajax::success($file);
-   			ajax::error('');
+			else
+	   			ajax::success('plugins/telecfree/core/template/images/chaines/chaines.png');
 		break;
 		default:
 			throw new Exception(__('Aucune methode correspondante à : ', __FILE__) . init('action'));

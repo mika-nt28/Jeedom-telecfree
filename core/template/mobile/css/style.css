@@ -86,7 +86,8 @@
 	position: absolute;	
 	z-index: 10;	
 	left: -100px;
-	background-color: #4a89dc;	
+	background-color: #4a89dc;
+	display: none;
 }
 .Chaines{
 	width: 100px;
@@ -96,4 +97,5 @@
 	z-index: 10;	
 	right: -100px;	
 	background-color: #4a89dc;
+	display: none;
 }

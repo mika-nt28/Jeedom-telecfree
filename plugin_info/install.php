@@ -6,6 +6,8 @@ function telecfree_update(){
 	log::add('telecfree','debug','Lancement du script de mise à jour'); 
 	foreach(eqLogic::byType('telecfree') as $eqLogic){
 		foreach($eqLogic->getCmd(null,null,null,true) as $cmd){
+			if($cmd->getName() == 'Chaine')
+				$cmd->setLogicalId('chaine');
 			if($cmd->getConfiguration('parameters','') != '' && $cmd->getConfiguration('parameters') != $cmd->getLogicalId())
 				$cmd->setLogicalId($cmd->getConfiguration('parameters'));
 			if($cmd->getLogicalId() == '987')

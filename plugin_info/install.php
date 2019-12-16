@@ -8,7 +8,7 @@ function telecfree_update(){
 		foreach($eqLogic->getCmd(null,null,null,true) as $cmd){
 			if($cmd->getName() == 'Chaine')
 				$cmd->setLogicalId('chaine');
-			if($cmd->getConfiguration('parameters','') != '' && $cmd->getConfiguration('parameters') != $cmd->getLogicalId())
+			/*if($cmd->getConfiguration('parameters','') != '' && $cmd->getConfiguration('parameters') != $cmd->getLogicalId())
 				$cmd->setLogicalId($cmd->getConfiguration('parameters'));
 			if($cmd->getLogicalId() == '987')
 				$cmd->setLogicalId('programmes');
@@ -23,7 +23,7 @@ function telecfree_update(){
 			if($cmd->getLogicalId() == '982')
 				$cmd->setLogicalId('replay');
 			if($cmd->getLogicalId() == '981')
-				$cmd->setLogicalId('tv');
+				$cmd->setLogicalId('tv');*/
 			$cmd->save();
 		}
 		$eqLogic->save();

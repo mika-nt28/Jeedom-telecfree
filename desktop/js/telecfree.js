@@ -3,15 +3,16 @@ $("#table_cmd_racoucis").sortable({axis: "y", cursor: "move", items: ".cmd", pla
 $("#table_cmd_chaine").sortable({axis: "y", cursor: "move", items: ".cmd", placeholder: "ui-state-highlight", tolerance: "intersect", forcePlaceholderSize: true});
 function addCmdToTable(_cmd) {
 	if (!isset(_cmd)) {
-        var _cmd = {};
-	_cmd.type = 'action';
-	_cmd.subType = 'other';	
-	_cmd.template.dashboard = 'core::telecfreeChaine';	
-	_cmd.template.mobile = 'core::telecfreeChaine';			
-    }
-    if (!isset(_cmd.configuration)) {
-        _cmd.configuration = {};
-    }
+        	var _cmd = {};
+		_cmd.type = 'action';
+		_cmd.subType = 'other';	
+		_cmd.template = [];
+		_cmd.template.dashboard = 'core::telecfreeChaine';	
+		_cmd.template.mobile = 'core::telecfreeChaine';			
+    	}
+    	if (!isset(_cmd.configuration)) {
+    		_cmd.configuration = {};
+    	}
 	var tr =$('<tr class="cmd" data-cmd_id="' + init(_cmd.id) + '">');
   	tr.append($('<td>')
 		.append($('<div>')

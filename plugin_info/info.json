@@ -6,9 +6,9 @@
 	"author" : "Michael Halbout",
 	"require" : "3.1",
 	"category" : "multimedia",
-	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile"],
-	"documentation" : "https://mika-nt28.github.io/Jeedom-telecfree/",
-	"changelog" : "https://mika-nt28.github.io/Jeedom-telecfree/",
+	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"],
+	"documentation" : "https://mika-nt28.github.io/Documentations/telecfree/",
+	"changelog" : "https://mika-nt28.github.io/Documentations/telecfree/",
 	"hasDependency" : true,
 	"hasOwnDeamon" : true
 }

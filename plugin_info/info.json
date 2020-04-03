@@ -8,7 +8,7 @@
 	"category" : "multimedia",
 	"compatibility" : ["miniplus","smart","rpi","docker","diy","mobile","v4"],
 	"documentation" : "https://mika-nt28.github.io/Documentations/telecfree/",
-	"changelog" : "https://mika-nt28.github.io/Documentations/telecfree/",
+	"changelog" : "https://mika-nt28.github.io/Documentations/telecfree/changelog",
 	"hasDependency" : true,
 	"hasOwnDeamon" : true
 }

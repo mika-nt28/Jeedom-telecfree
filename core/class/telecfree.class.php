@@ -124,6 +124,10 @@ class telecfree extends eqLogic {
 		$this->AddCommande('Musiques','musiques',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('Disques','disques',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('Programmes','programmes',"action",'other','telecfreeRaccourci');
+		$this->AddCommande('Netflix','netflix',"action",'other','telecfreeRaccourci');
+		$this->AddCommande('Ubereats','ubereats',"action",'other','telecfreeRaccourci');
+		$this->AddCommande('CanalPlus','canalplus',"action",'other','telecfreeRaccourci');
+		$this->AddCommande('Qobuz','qobuz',"action",'other','telecfreeRaccourci');
 	}
 	public function AddCommande($Name,$_logicalId,$Type="info", $SubType='binary', $Template='default') {
 		$Commande = $this->getCmd(null,$_logicalId);
@@ -205,6 +209,10 @@ class telecfree extends eqLogic {
 				case 'videos':
 				case 'replay':
 				case 'tv':
+				case 'netflix':
+				case 'ubereats':
+				case 'qobuz':
+				case 'canalplus':
 					$replace['#'.$cmd->getLogicalId().'#'] = $cmd_html;
 				break;
 				default:
@@ -257,31 +265,47 @@ class telecfreeCmd extends cmd {
 	}
 	public function execute($_options = null) {
 		switch($this->getLogicalId()){
-			case 'programmes':// => 987
+			case 'netflix':
 				$this->SynchroMenu();
-				$this->multiSend(array('green','down','ok','down','ok'));
+				$this->multiSend(array('right','down','down','down','ok'));
 			break;
-			case 'disques':// => 986
-				$this->SynchroMenu();
-				$this->multiSend(array('right','right','right','right','ok'));
-			break;
-			case 'musiques':// => 985
-				$this->SynchroMenu();
-				$this->multiSend(array('right','right','ok'));
-			break;
-			case 'radios':// => 984
-				$this->SynchroMenu();
-				$this->multiSend(array('right','right','down','down','ok'));
-			break;
-			case 'videos':// => 983
-				$this->SynchroMenu();
-				$this->multiSend(array('right','ok'));
-			break;
-			case 'replay':// => 982
+			case 'ubereats':
 				$this->SynchroMenu();
 				$this->multiSend(array('right','down','down','ok'));
 			break;
-			case 'tv':// => 981
+			case 'qobuz':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','right','down','down','ok'));
+			break;
+			case 'canalplus':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','down','down','down','down','ok'));
+			break;
+			case 'programmes':
+				$this->SynchroMenu();
+				$this->multiSend(array('green','down','ok','down','ok'));
+			break;
+			case 'disques':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','right','right','right','ok'));
+			break;
+			case 'musiques':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','right','ok'));
+			break;
+			case 'radios':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','right','down','down','down','ok'));
+			break;
+			case 'videos':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','down','down','down','down','down','ok'));
+			break;
+			case 'replay':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','ok'));
+			break;
+			case 'tv':
 				$this->SynchroMenu();
 				$this->multiSend(array('ok'));
 			break;

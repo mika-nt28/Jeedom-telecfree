@@ -45,6 +45,10 @@ function addCmdToTable(_cmd) {
 		.append($('<i class="fa fa-cogs">')));
 	tr.append(parmetre);
 	switch(_cmd.logicalId){
+		case 'netflix':
+		case 'ubereats':
+		case 'qobuz':
+		case 'canalplus':
 		case 'programmes':
 		case 'disques':
 		case 'musiques':

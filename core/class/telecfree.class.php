@@ -118,6 +118,7 @@ class telecfree extends eqLogic {
 		$this->AddCommande('Droite','right',"action",'other','telecfreeBase');
 		
 		$this->AddCommande('Télévision','tv',"action",'other','telecfreeRaccourci');
+		$this->AddCommande('Mon bouquet','bouquet',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('Replay','replay',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('Videos','videos',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('Radio','radios',"action",'other','telecfreeRaccourci');		
@@ -213,6 +214,7 @@ class telecfree extends eqLogic {
 				case 'ubereats':
 				case 'qobuz':
 				case 'canalplus':
+				case 'bouquet':
 					$replace['#'.$cmd->getLogicalId().'#'] = $cmd_html;
 				break;
 				default:
@@ -265,6 +267,10 @@ class telecfreeCmd extends cmd {
 	}
 	public function execute($_options = null) {
 		switch($this->getLogicalId()){
+			case 'bouquet':
+				$this->SynchroMenu();
+				$this->multiSend(array('down','down','down','down','ok'));
+			break;
 			case 'netflix':
 				$this->SynchroMenu();
 				$this->multiSend(array('right','down','down','down','ok'));

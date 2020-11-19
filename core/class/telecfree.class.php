@@ -125,6 +125,7 @@ class telecfree extends eqLogic {
 		$this->AddCommande('Musiques','musiques',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('Disques','disques',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('Programmes','programmes',"action",'other','telecfreeRaccourci');
+		$this->AddCommande('Prime Video','videoprime',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('Netflix','netflix',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('Ubereats','ubereats',"action",'other','telecfreeRaccourci');
 		$this->AddCommande('CanalPlus','canalplus',"action",'other','telecfreeRaccourci');
@@ -271,21 +272,37 @@ class telecfreeCmd extends cmd {
 				$this->SynchroMenu();
 				$this->multiSend(array('down','down','down','down','ok'));
 			break;
-			case 'netflix':
+			case 'replay':
 				$this->SynchroMenu();
-				$this->multiSend(array('right','down','down','down','ok'));
+				$this->multiSend(array('right','ok'));
 			break;
 			case 'ubereats':
 				$this->SynchroMenu();
 				$this->multiSend(array('right','down','down','ok'));
 			break;
-			case 'qobuz':
+			case 'netflix':
 				$this->SynchroMenu();
-				$this->multiSend(array('right','right','down','down','ok'));
+				$this->multiSend(array('right','down','down','down','ok'));
+			break;
+			case 'videoprime': 
+				$this->SynchroMenu();
+				$this->multiSend(array('right','down','down','down','down','ok'));
 			break;
 			case 'canalplus':
 				$this->SynchroMenu();
-				$this->multiSend(array('right','down','down','down','down','ok'));
+				$this->multiSend(array('right','down','down','down','down','down','ok'));
+			break;
+			case 'videos':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','down','down','down','down','down','down','ok'));
+			break;
+			case 'musiques':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','right','ok'));
+			break;
+			case 'qobuz':
+				$this->SynchroMenu();
+				$this->multiSend(array('right','right','down','down','ok'));
 			break;
 			case 'programmes':
 				$this->SynchroMenu();
@@ -295,21 +312,9 @@ class telecfreeCmd extends cmd {
 				$this->SynchroMenu();
 				$this->multiSend(array('right','right','right','right','ok'));
 			break;
-			case 'musiques':
-				$this->SynchroMenu();
-				$this->multiSend(array('right','right','ok'));
-			break;
 			case 'radios':
 				$this->SynchroMenu();
 				$this->multiSend(array('right','right','down','down','down','ok'));
-			break;
-			case 'videos':
-				$this->SynchroMenu();
-				$this->multiSend(array('right','down','down','down','down','down','ok'));
-			break;
-			case 'replay':
-				$this->SynchroMenu();
-				$this->multiSend(array('right','ok'));
 			break;
 			case 'tv':
 				$this->SynchroMenu();

@@ -1,38 +1,12 @@
 <span class="cmd" data-type="action" data-subtype="other" data-cmd_id="#id#" style="width:100%;height:100%;">
 	<center>
-    		<a class="action cmdName tooltips iconCmd#id#"></a>
+		<a class="action iconCmd">
+			<img src="plugins/telecfree/core/template/images/Univers #logicalId#.png" width="0px"/>
+		</a>
 	</center>
    	<script>
 		$(".cmd[data-cmd_id=#id#] .action").off().on("click", function() {
 			jeedom.cmd.execute({id: "#id#"});
 		});
-		switch('#logicalId#'){
-			case 'programmes':
-				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers programmes.png" width="80px"/>');
-			break;
-			case 'disques':
-				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers disques.png" width="80px"/>');
-			break;
-			case 'qobuz':
-			case 'musiques':
-				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers musiques.png" width="80px"/>');
-			break;
-			case 'radios':
-				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers radios.png" width="80px"/>');
-			break;
-			case 'netflix':
-			case 'ubereats':
-			case 'canalplus':
-			case 'videoprime':
-			case 'videos':
-				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers videos.png" width="80px"/>');
-			break;
-			case 'replay':
-				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers replay.png" width="80px"/>');
-			break;
-			case 'tv':
-				$('.iconCmd#id#').append('<img src="plugins/telecfree/core/template/images/Univers tv.png" width="80px"/>');
-			break;
-		}
 	</script>
 </span>

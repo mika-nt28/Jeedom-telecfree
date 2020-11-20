@@ -212,7 +212,7 @@ class telecfree extends eqLogic {
 				case 'videos':
 				case 'replay':
 				case 'tv':
-				case 'primevideo':
+				case 'videoprime':
 				case 'netflix':
 				case 'ubereats':
 				case 'qobuz':

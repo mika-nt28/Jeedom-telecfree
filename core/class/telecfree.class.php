@@ -88,7 +88,7 @@ class telecfree extends eqLogic {
 		$ActionPower->save();
 		$this->AddCommande('Volume +','vol_inc',"action",'other','telecfreeBase');
 		$this->AddCommande('Volume -','vol_dec',"action",'other','telecfreeBase');
-		$this->AddCommande('Chaine','chaine',"action",'slider');
+		$this->AddCommande('Chaine','chaine',"action",'slider','telecfreeBase');
 		$this->AddCommande('Programme +','prgm_inc',"action",'other','telecfreeBase');
 		$this->AddCommande('Programme -','prgm_dec',"action",'other','telecfreeBase');
 		$this->AddCommande('Home','home',"action",'other','telecfreeBase');
@@ -144,8 +144,9 @@ class telecfree extends eqLogic {
 			$Commande->setSubType($SubType);
 			$Commande->setTemplate('dashboard',$Template);
 			$Commande->setTemplate('mobile', $Template);
-			$Commande->save();	
 		}
+			$Commande->setConfiguration('type', $Template);
+			$Commande->save();	
 		return $Commande;
 	}	
 	public function toHtml($_version = 'dashboard') {
@@ -170,54 +171,11 @@ class telecfree extends eqLogic {
 				$cmd_html .= '<br/>';
 				$br_before = 1;
 			}
-			switch($cmd->getLogicalId()){
-				case 'chaine':
-				break;
-				case 'home':
-				case 'power':
-				case 'red':
-				case 'up':
-				case 'blue':
-				case '1':
-				case '2':
-				case '3':
-				case '4':
-				case '5':
-				case '6':
-				case '7':
-				case '8':
-				case '9':
-				case '0':
-				case 'vol_inc':
-				case 'vol_dec':
-				case 'prgm_inc':
-				case 'prgm_dec':
-				case 'mute':
-				case 'left':
-				case 'right':
-				case 'ok':
-				case 'green':
-				case 'down':
-				case 'yellow':
-				case 'play':
-				case 'prev':
-				case 'next':
-				case 'rec':
+			switch($cmd->getConfiguration('type')){
+				case 'telecfreeBase':
 					$replace['#'.$cmd->getLogicalId().'#'] = $cmd_html;
 				break;
-				case 'programmes':
-				case 'disques':
-				case 'musiques':
-				case 'radios':
-				case 'videos':
-				case 'replay':
-				case 'tv':
-				case 'videoprime':
-				case 'netflix':
-				case 'ubereats':
-				case 'qobuz':
-				case 'canalplus':
-				case 'bouquet':
+				case 'telecfreeRaccourci':
 					$replace['#Racourcis#'] .= $cmd_html;
 				break;
 				default:

@@ -133,8 +133,7 @@ class telecfree extends eqLogic {
 	}
 	public function AddCommande($Name,$_logicalId,$Type="info", $SubType='binary', $Template='default') {
 		$Commande = $this->getCmd(null,$_logicalId);
-		if (!is_object($Commande))
-		{
+		if (!is_object($Commande)){
 			$VerifName=$Name;
 			$Commande = new telecfreeCmd();
 			$Commande->setId(null);
@@ -143,10 +142,10 @@ class telecfree extends eqLogic {
 			$Commande->setName($VerifName);
 			$Commande->setType($Type);
 			$Commande->setSubType($SubType);
-		}
 			$Commande->setTemplate('dashboard',$Template);
 			$Commande->setTemplate('mobile', $Template);
-			$Commande->save();
+			$Commande->save();	
+		}
 		return $Commande;
 	}	
 	public function toHtml($_version = 'dashboard') {
@@ -204,6 +203,8 @@ class telecfree extends eqLogic {
 				case 'prev':
 				case 'next':
 				case 'rec':
+					$replace['#'.$cmd->getLogicalId().'#'] = $cmd_html;
+				break;
 				case 'programmes':
 				case 'disques':
 				case 'musiques':
@@ -211,12 +212,13 @@ class telecfree extends eqLogic {
 				case 'videos':
 				case 'replay':
 				case 'tv':
+				case 'primevideo':
 				case 'netflix':
 				case 'ubereats':
 				case 'qobuz':
 				case 'canalplus':
 				case 'bouquet':
-					$replace['#'.$cmd->getLogicalId().'#'] = $cmd_html;
+					$replace['#Racourcis#'] .= $cmd_html;
 				break;
 				default:
 					$replace['#Chaines#'] .= $cmd_html;

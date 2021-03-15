@@ -159,6 +159,8 @@ class telecfree extends eqLogic {
 			return '';
 		}
 		$replace['#Chaines#']='';
+		$replace['#Racourcis#']='';
+		$br_before = 0;
 		foreach ($this->getCmd(null, null, true) as $cmd) {
 			if (isset($replace['#refresh_id#']) && $cmd->getId() == $replace['#refresh_id#']) 
 				continue;

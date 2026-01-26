@@ -41,30 +41,11 @@ class telecfree extends eqLogic {
 		if(is_object($cron))	
 			$cron->remove();
 	}	
-	public static function dependancy_info() {
-		$return = array();
-		$return['log'] = 'telecfree_update';
-		$return['progress_file'] = '/tmp/compilation_telecfree_in_progress';
-		if (exec('dpkg -s netcat | grep -c "Status: install"') ==1)
-				$return['state'] = 'ok';
-		else
-			$return['state'] = 'nok';
-		return $return;
-	}
-	public static function dependancy_install() {
-		if (file_exists('/tmp/compilation_telecfree_in_progress')) {
-			return;
-		}
-		log::remove('telecfree_update');
-		$cmd = 'sudo /bin/bash ' . dirname(__FILE__) . '/../../ressources/install.sh';
-		$cmd .= ' >> ' . log::getPathToLog('telecfree_update') . ' 2>&1 &';
-		exec($cmd);
-	}
 	public static function pull() {
 		while(true){
 			foreach(eqLogic::byType('telecfree') as $telecfree){
 				if($telecfree->getIsEnable()){
-					$result=exec('nc -zv '.$telecfree->getConfiguration('ipplayer').' 7000 2>&1 | grep -E "open|succeeded" | wc -l');
+					$result=$this->pingExec();
 					$telecfree->checkAndUpdateCmd('powerstat',$result);
 					log::add('telecfree','debug','Etat du player freebox '.$telecfree->getConfiguration('ipplayer').' : '.$result);
 				}
@@ -72,6 +53,18 @@ class telecfree extends eqLogic {
 			sleep(config::byKey('DemonSleep','telecfree'));
 		}
 		self::deamon_stop();
+	}
+	private function pingExec($_mode = 'ip') {
+		$latency = false;
+		$host = escapeshellcmd($telecfree->getConfiguration('ipplayer'));
+		$timeout = escapeshellcmd(10);
+		if ($_mode == 'arp') {
+			$exec_string = "sudo arping -c 1 -C 1 -w 10 -W {$timeout} {$host} 2> /dev/null";
+		} else {
+			$exec_string = "sudo ping -n -c 1 -t {$ttl} -W {$timeout} {$host} 2> /dev/null";
+		}
+		exec($exec_string, $output, $return);		
+		return $return;
 	}
 	public function preUpdate() {
 		if ($this->getConfiguration('codetelec') == '') {
